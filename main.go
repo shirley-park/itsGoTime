@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
 	/* VARIABLE DECLARATIONS
 
@@ -30,20 +28,22 @@ func main() {
 		- An array that can grow or shrink, can add and subtract new cards out of slice
 		- Every element in a slice must be of same type (ie. all string or int)
 
-	*/
-
-	cards := []string{newCard(), newCard()}
+	cards := deck{"Ace of Diamonds", newCard()}
 	cards = append(cards, "Six of Spades")
 	// note: append() does not modify the existing slice
 	// instead returns a new slice which we assign back to var cards
 
-	// how do we iterate over the cards slice?
-	for i, card := range cards {
-		fmt.Println(i, card)
-	}
+	how do we iterate over the cards slice?
 
-	fmt.Println(cards)
+		for i, card := range cards {
+			fmt.Println(i, card)
+		}
+	*/
 
+	cards := deck{"Ace of Diamonds", newCard()}
+	cards = append(cards, "Six of Spades")
+
+	cards.print()
 }
 
 // defining a separate function that is called from main().
