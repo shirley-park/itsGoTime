@@ -29,7 +29,8 @@ import "fmt"
 
 type deck []string
 
-// (d deck) is the RECEIVEr
+// (d deck) is the RECEIVER
+// to any variable of type 'deck' get access to print() method
 func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i, card)
