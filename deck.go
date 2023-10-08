@@ -53,3 +53,22 @@ func (d deck) print() {
 		fmt.Println(i, card)
 	}
 }
+
+/* SLICE RANGE SYNTAX
+- Slices are zero-indexed:
+eg. say we have a slice of fruits:
+           0         1         2        3
+fruits = "apple", "banana", "grape", "orange"
+
+fruits[0] = "apple"
+fruits[3] = "orange"
+
+fruits[startIndexIncl : upToExcl]
+fruits[0:2] = "apple", "banana"
+
+we can optionally exclude numbers:
+fruits[:2] = "apple", "banana"
+meaning give me everything from beginning to index 2
+OR
+fruits[2:] = "grape", "orange"
+*/
