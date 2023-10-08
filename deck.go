@@ -29,6 +29,23 @@ import "fmt"
 
 type deck []string
 
+// newDeck() creates and returns a list of playing cards
+func newDeck() deck {
+	// cards of type deck
+	// contains all 52 cards
+	cards := deck{}
+
+	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
+	cardValues := []string{"Ace", "Two", "Three", "Four"}
+
+	for _, suit := range cardSuits {
+		for _, value := range cardValues {
+			cards = append(cards, value+" of "+suit)
+		}
+	}
+	return cards
+}
+
 // (d deck) is the RECEIVER
 // to any variable of type 'deck' get access to print() method
 func (d deck) print() {
