@@ -20,6 +20,27 @@
 
 // ------------------------
 
+/* SLICE RANGE SYNTAX
+- Slices are zero-indexed:
+eg. say we have a slice of fruits:
+           0         1         2        3
+fruits = "apple", "banana", "grape", "orange"
+
+fruits[0] = "apple"
+fruits[3] = "orange"
+
+fruits[startIndexIncl : upToExcl]
+fruits[0:2] = "apple", "banana"
+
+we can optionally exclude numbers:
+fruits[:2] = "apple", "banana"
+meaning give me everything from beginning to index 2
+OR
+fruits[2:] = "grape", "orange"
+*/
+
+// ------------------------
+
 package main
 
 import "fmt"
@@ -54,21 +75,15 @@ func (d deck) print() {
 	}
 }
 
-/* SLICE RANGE SYNTAX
-- Slices are zero-indexed:
-eg. say we have a slice of fruits:
-           0         1         2        3
-fruits = "apple", "banana", "grape", "orange"
+// we can call deal() with
+// 1st arg of type deck and
+// 2nd arg of type int
+// (deck, deck) means this func will return two sep values of type deck
+func deal(d deck, handSize int) (deck, deck) {
 
-fruits[0] = "apple"
-fruits[3] = "orange"
+	// Multiple return values
+	//take list of deck and split into 2 using handSize
 
-fruits[startIndexIncl : upToExcl]
-fruits[0:2] = "apple", "banana"
+	return d[:handSize], d[handSize:]
 
-we can optionally exclude numbers:
-fruits[:2] = "apple", "banana"
-meaning give me everything from beginning to index 2
-OR
-fruits[2:] = "grape", "orange"
-*/
+}

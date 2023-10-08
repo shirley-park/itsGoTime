@@ -42,10 +42,17 @@ how do we iterate over the cards slice?
 func main() {
 	// cards := deck{"Ace of Diamonds", newCard()}
 	// cards = append(cards, "Six of Spades")
+	// cards.print()
 
 	cards := newDeck()
 
-	cards.print()
+	// deal returns two values
+	// the first will be assigned to hand
+	// second return value assigned to remainingCards
+	hand, remainingCards := deal(cards, 5)
+
+	hand.print()
+	remainingCards.print()
 }
 
 // defining a separate function that is called from main().
