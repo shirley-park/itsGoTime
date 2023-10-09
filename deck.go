@@ -43,7 +43,10 @@ fruits[2:] = "grape", "orange"
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // Create a new type of 'deck'
 // which is a slice of strings
@@ -52,8 +55,6 @@ type deck []string
 
 // newDeck() creates and returns a list of playing cards
 func newDeck() deck {
-	// cards of type deck
-	// contains all 52 cards
 	cards := deck{}
 
 	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
@@ -67,7 +68,7 @@ func newDeck() deck {
 	return cards
 }
 
-// (d deck) is the RECEIVER
+// (d deck) is the **RECEIVER**
 // to any variable of type 'deck' get access to print() method
 func (d deck) print() {
 	for i, card := range d {
@@ -85,5 +86,15 @@ func deal(d deck, handSize int) (deck, deck) {
 	//take list of deck and split into 2 using handSize
 
 	return d[:handSize], d[handSize:]
+
+}
+
+// takes in the deck type ([]string) and going to turn it into a string
+// takes in a deck RECEIVER
+func (d deck) toString() string {
+	// use func Join, a helper funciton that takes in []string and turns into string
+	// func Join(elems []string, "separator string") string
+
+	return strings.Join([]string(d), ",")
 
 }

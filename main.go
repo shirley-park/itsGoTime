@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 /* VARIABLE DECLARATIONS
 
 var card string = "Ace of Spades" -> long form way of declaring variables
@@ -44,15 +46,23 @@ func main() {
 	// cards = append(cards, "Six of Spades")
 	// cards.print()
 
-	cards := newDeck()
+	// cards := newDeck()
 
 	// deal returns two values
 	// the first will be assigned to hand
 	// second return value assigned to remainingCards
-	hand, remainingCards := deal(cards, 5)
+	/*
+		hand, remainingCards := deal(cards, 5)
 
-	hand.print()
-	remainingCards.print()
+		hand.print()
+		remainingCards.print()
+	*/
+
+	// -----------------
+
+	cards := newDeck()
+	fmt.Println(cards.toString())
+
 }
 
 // defining a separate function that is called from main().
