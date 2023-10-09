@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 /* VARIABLE DECLARATIONS
 
 var card string = "Ace of Spades" -> long form way of declaring variables
@@ -61,7 +59,8 @@ func main() {
 	// -----------------
 
 	cards := newDeck()
-	fmt.Println(cards.toString())
+	// fmt.Println(cards.toString())
+	cards.saveToFile("my_cards")
 
 }
 

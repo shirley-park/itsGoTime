@@ -45,6 +45,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"strings"
 )
 
@@ -77,8 +78,7 @@ func (d deck) print() {
 }
 
 // we can call deal() with
-// 1st arg of type deck and
-// 2nd arg of type int
+// 1st arg of type deck and 2nd arg of type int
 // (deck, deck) means this func will return two sep values of type deck
 func deal(d deck, handSize int) (deck, deck) {
 
@@ -89,12 +89,23 @@ func deal(d deck, handSize int) (deck, deck) {
 
 }
 
-// takes in the deck type ([]string) and going to turn it into a string
-// takes in a deck RECEIVER
+/*
+JOINING A SLICE OF STRINGS
+takes in the deck type ([]string) and going to turn it into a string
+takes in a deck RECEIVER
+*/
 func (d deck) toString() string {
 	// use func Join, a helper funciton that takes in []string and turns into string
 	// func Join(elems []string, "separator string") string
 
 	return strings.Join([]string(d), ",")
+}
 
+/*
+SAVING DATA TO THE HARD DRIVE
+saving the deck to the hard drive
+permissions 0666 means anyone can read or write this file
+*/
+func (d deck) saveToFile(filename string) error {
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 }
